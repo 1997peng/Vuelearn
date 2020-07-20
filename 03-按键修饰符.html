@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			用户名:<input type="text" v-model="uname"><br />
+			密码:<input type="text" v-model="pwd" v-on:keyup.enter="handleSubmit" v-on:keydown.delete="handle"/><br />
+			<button type="button" @click="handleSubmit">提交</button>
+		</div>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var app=new Vue({
+				el:'#app',
+				data:{
+					uname:'',
+					pwd:''
+				},
+				methods:{
+					handleSubmit:function(){
+						console.log(this.uname,this.pwd);
+					},
+					handle:function(){
+						this.uname='',
+						this.pwd=''
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

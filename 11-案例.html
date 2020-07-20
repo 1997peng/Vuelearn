@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.active{
+				float: left;
+				width: 80px;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				border: 1px solid blue;				
+				margin-left: -1px;
+				list-style: none;
+			}
+			.current{
+				width: 500px;
+				height: 200px;
+				float: left;
+				border: 1px solid blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<ul><li class="active" v-for="(item,index) in fruits">{{item.title}}</li></ul>
+			<div class="current"></div>
+		</div>
+		<script src="./js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var app=new  Vue({
+				el:'#app',
+				data:{
+				   fruits:[{
+					   id:1,
+					   title:'apple',
+					   path:'./img/apple.png'
+				   },{
+					   id:2,
+					   title:'orange',
+					   path:'./img/orange.jpg'
+				   },{
+					   id:3,				   
+					   title:'banana',
+					   path:'./img/banana.jpg'	  
+				   }]	
+				}				
+			})
+			
+		</script>
+	</body>
+</html>

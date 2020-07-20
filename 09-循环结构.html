@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<li v-for="item in fruits">{{item}}</li>
+			<li v-for="(item,index) in fruits">{{item+'-----'+index}}</li>
+			<li :key='item.id'   v-for="(item,index) in myFruits">{{item.ename+'---'+item.cname}}</li>
+		</div>
+		<script src="./js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var app=new Vue({
+				el:'#app',
+				data:{
+				   fruits:['apple','orange','banana'],
+				   myFruits:[{
+					   id:1,
+					   ename:'apple',
+					   cname:'苹果'
+				   },{
+					   id:2,
+					   ename:'orange',
+					   cname:'橘子'
+				   },{
+					   id:3,
+					   ename:'banana',
+					   cname:'香蕉'
+				   }]
+				}
+			});
+		</script>
+	</body>
+</html>

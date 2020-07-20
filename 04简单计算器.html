@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<div>数值A<input v-model="A"></input></div>
+			<div>数值B<input v-model="B"></input></div>
+			<div><button @click="add">计算</button></div>
+			<div>计算结果:{{result}}</div>
+		</div>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var app=new Vue({
+				el:'#app',
+				data:{
+					A:'',
+					B:'',
+					result:''
+				},
+				methods:{
+					add:function(){
+					    this.result=parseInt(this.A)+parseInt(this.B);
+					}
+				}
+			});
+		</script>
+	</body>
+</html>
