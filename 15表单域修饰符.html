@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model.number="num"/> 
+			 <!-- num类型为number,非字符串，一般用于数字计算 -->
+			<input type="text" v-model.trim="info"/>
+			<!-- 自动移除左右空格 -->
+			<input type="text" v-model.lazy="message"/>
+			<!-- 懒更新，只有在失去焦点时才会触发被改变的事件 -->
+			<span>{{message}}</span>
+		</div>
+		<script src="./js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var app=new Vue({
+				el:'#app',
+				data:{
+					num:'',
+					info:'',
+					message:''
+				}
+			})
+		</script>
+	</body>
+</html>

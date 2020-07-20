@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			form div{
+				height: 40px;
+				line-height: 40px;
+			}
+			form div:nth-child(4) {
+			    height: auto;
+			}
+			form div span:first-child{
+				display: inline-block;
+				width: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<form action="#">
+				<div>
+					<span>姓名:</span>
+					<span><input v-model="uname"/></span>
+				</div>
+				<div>
+					<span>性别</span>
+					<span>
+						<input type="radio" id="man" value="1" v-model="gender"/>
+						<label for="man">男</label>
+						<input type="radio" id="woman" value="2" v-model="gender"/>
+						<label for="woman">女</label>
+					</span>
+				</div>
+				<div>
+					<span>爱好</span>
+					<span>
+						<input type="checkbox"  id="ball" value="1" v-model="hobby"/><label for="ball">篮球</label>
+						<input type="checkbox"  id="sing" value="2" v-model="hobby"/><label for="ball">唱歌</label>
+						<input type="checkbox"  id="code" value="3" v-model="hobby"/><label for="ball">写代码</label>
+					</span>
+				</div>
+				<div>
+					<span>职业:</span>
+					<select>
+						<option>请选择职业</option>
+						<option v-for="item in occupation">{{item}}</option>
+					</select>
+				</div>
+				<div>
+					<span>个人简介</span>
+					<textarea>
+						
+					</textarea>
+				</div>
+				<div>
+					<input type="submit"  value="提交" />
+				</div>
+			</form>
+		</div>
+		<script src="./js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var app = new Vue({
+				el:'#app',
+				data:{
+					uname:'李四',
+					gender:2,
+					hobby:[2,3],
+					occupation:['教师','软件工程师','律师'],
+				}
+			})
+		</script>
+	</body>
+</html>

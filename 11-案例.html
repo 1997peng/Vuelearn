@@ -4,34 +4,61 @@
 		<meta charset="utf-8">
 		<title></title>
 		<style type="text/css">
-			.active{
-				float: left;
-				width: 80px;
-				height: 40px;
-				line-height: 40px;
-				text-align: center;
-				border: 1px solid blue;				
-				margin-left: -1px;
-				list-style: none;
-			}
-			.current{
-				width: 500px;
-				height: 200px;
-				float: left;
-				border: 1px solid blue;
-			}
+		
+		    .tab ul {
+		      overflow: hidden;
+		      padding: 0;
+		      margin: 0;
+		    }
+		    .tab ul li {
+		      box-sizing: border-box;
+		      padding: 0;
+		      float: left;
+		      width: 100px;
+		      height: 45px;
+		      line-height: 45px;
+		      list-style: none;
+		      text-align: center;
+		      border-top: 1px solid blue;
+		      border-right: 1px solid blue;
+		      cursor
+		    }
+		    .tab ul li:first-child {
+		      border-left: 1px solid blue;
+		    }
+		    .tab ul li.active {
+		      background-color: orange;
+		    }
+		    .tab div {
+		      width: 500px;
+		      height: 300px;
+		      /* display: none; */
+		      text-align: center;
+		      font-size: 30px;
+		      line-height: 300px;
+		      border: 1px solid blue;
+		      border-top: 0px;
+		    }
+		    .tab div.current {
+		      display: block;
+		    }
 		</style>
 	</head>
 	<body>
 		<div id="app">
-			<ul><li class="active" v-for="(item,index) in fruits">{{item.title}}</li></ul>
-			<div class="current"></div>
+			<div class="tab">
+				<ul>
+					<li v-on:click='change(index)' :class='currentIndex==index?"active":""' v-for="(item,index) in fruits" :key='item.id'>{{item.title}}</li>
+				</ul>
+				<div :class='currentIndex==index?"current":""' v-for="(item,index) in fruits" :key='item.id'><img src="item.path"></div>
+			</div>
 		</div>
 		<script src="./js/vue.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			var app=new  Vue({
 				el:'#app',
 				data:{
+				   currentIndex:0,
 				   fruits:[{
 					   id:1,
 					   title:'apple',
@@ -45,7 +72,12 @@
 					   title:'banana',
 					   path:'./img/banana.jpg'	  
 				   }]	
-				}				
+				},
+				methods:{
+					change:function(index){
+						this.currentIndex=index;
+					}
+				}
 			})
 			
 		</script>
